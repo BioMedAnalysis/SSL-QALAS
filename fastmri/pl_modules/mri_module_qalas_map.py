@@ -457,7 +457,7 @@ class MriModuleQALAS_MAP(pl.LightningModule):
     def log_image(self, name, image):
         self.logger.experiment.add_image(name, image, global_step=self.global_step)
 
-    def validation_epoch_end(self, val_logs):
+    def on_validation_epoch_end(self, val_logs):
         # aggregate losses
         losses_t1 = []
         losses_t2 = []
